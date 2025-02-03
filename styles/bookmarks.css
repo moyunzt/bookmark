@@ -1,0 +1,188 @@
+/* 添加/修改主题颜色变量 */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --border-color: #cccccc;
+  --hover-bg: #e8e8e8;
+  --hover-border: #cccccc;
+  --selected-bg: #cce8ff;
+  --selected-border: #99d1ff;
+  --folder-icon-color: #666666;
+  --separator-color: #666666;
+  --path-bg: #f5f5f5;
+  --header-border: #e0e0e0;
+  --link-color: #333333;
+  --icon-opacity: 1;
+}
+
+[data-theme='dark'] {
+  --bg-color: #1e1e1e;
+  --text-color: #e8e8e8;
+  --border-color: #333333;
+  --hover-bg: #3f3f3f;
+  --hover-border: #555555;
+  --selected-bg: #264f78;
+  --selected-border: #0078d4;
+  --folder-icon-color: #e8e8e8;
+  --separator-color: #999999;
+  --path-bg: #2d2d2d;
+  --header-border: #333333;
+  --link-color: #e8e8e8;
+  --icon-opacity: 0.9;
+}
+
+/* 修改现有样式，使用变量 */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.bookmark-item:hover,
+.folder-header:hover {
+  background-color: var(--hover-bg);
+  border-color: var(--hover-border);
+}
+
+.folder-header.selected {
+  background-color: var(--selected-bg);
+  border-color: var(--selected-border);
+}
+
+#folder-tree {
+  border-right-color: var(--border-color);
+}
+
+#path-bar {
+  background: var(--path-bg);
+  border-bottom-color: var(--border-color);
+}
+
+.path-separator {
+  color: var(--separator-color);
+}
+
+/* 修改图标颜色 */
+.toggle-icon.collapsed {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="currentColor" d="M6 12l4-4-4-4z"/></svg>');
+}
+
+.toggle-icon.expanded {
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="currentColor" d="M12 6l-4 4-4-4z"/></svg>');
+}
+
+/* 书签项样式 */
+.bookmark-item {
+  padding: 2px 4px;
+  margin: 1px 0;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+}
+
+/* 书签文字样式 */
+.bookmark-title {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--link-color);
+  text-decoration: none;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 书签图标样式 */
+.bookmark-favicon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  vertical-align: middle;
+}
+
+/* 文件夹样式 */
+.folder-container {
+  width: 100%;
+}
+
+.folder-header {
+  display: flex;
+  align-items: center;
+  padding: 2px 4px;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.toggle-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px;
+  opacity: 0.7;
+}
+
+.folder-icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="%23FDB900" d="M1.5 2h5l1 2h7a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-13a1 1 0 0 1-1-1v-9a1 1 0 0 1 1-1z"/></svg>');
+  opacity: var(--icon-opacity);
+}
+
+.bookmark-folder {
+  font-size: 13px;
+  color: var(--text-color);
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.folder-content {
+  margin-left: 12px;
+  overflow: hidden;
+}
+
+.folder-content.collapsed {
+  display: none;
+}
+
+/* 在现有样式的基础上添加以下内容 */
+
+.content-header {
+  padding: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  border-bottom: 1px solid var(--header-border);
+  color: var(--text-color);
+}
+
+.bookmarks-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 4px;
+  padding: 8px;
+}
+
+.bookmark-item {
+  padding: 6px 8px;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bookmark-item:hover {
+  background-color: #e8e8e8;
+  border: 1px solid #ccc;
+}
+
+.folder-container {
+  user-select: none;
+}
+
+/* 其他样式保持不变 */ 
